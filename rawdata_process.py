@@ -1,18 +1,19 @@
 import pandas as pd
 
 # # 서울 경기 아파트 매매
-# # 파일 경로
+# # 파일 경로 수정함
 
-# file1 = 'C:\Users\innov\workspace\realestate_detective1_rawdata\서울_아파트_매매\아파트(매매)_실거래가_서울_202301_202312.csv'
-# file2 = 'C:\Users\innov\workspace\realestate_detective1_rawdata\서울_아파트_매매\아파트(매매)_실거래가_서울_202201_202212.csv'
-# file3 = 'C:\Users\innov\workspace\realestate_detective1_rawdata\서울_아파트_매매\아파트(매매)_실거래가_서울_202101_202112.csv'
-# file4 = 'C:\Users\innov\workspace\realestate_detective1_rawdata\서울_아파트_매매\아파트(매매)_실거래가_서울_202001_202012.csv'
-# file5 = 'C:\Users\innov\workspace\realestate_detective1_rawdata\서울_아파트_매매\아파트(매매)_실거래가_서울_201901_201912.csv'
-# file6 = 'C:\Users\innov\workspace\realestate_detective1_rawdata\서울_아파트_매매\아파트(매매)_실거래가_경기_202301_202312.csv'
-# file7 = 'C:\Users\innov\workspace\realestate_detective1_rawdata\서울_아파트_매매\아파트(매매)_실거래가_경기_202201_202212.csv'
-# file8 = 'C:\Users\innov\workspace\realestate_detective1_rawdata\서울_아파트_매매\아파트(매매)_실거래가_경기_202101_202112.csv'
-# file9 = 'C:\Users\innov\workspace\realestate_detective1_rawdata\서울_아파트_매매\아파트(매매)_실거래가_경기_202001_202012.csv'
-# file10 ='C:\Users\innov\workspace\realestate_detective1_rawdata\서울_아파트_매매\아파트(매매)_실거래가_경기_201901_201912.csv'
+
+# file1 = 'C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\아파트(매매)_실거래가_서울_202301_202312.csv'
+# file2 = 'C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\아파트(매매)_실거래가_서울_202201_202212.csv'
+# file3 = 'C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\아파트(매매)_실거래가_서울_202101_202112.csv'
+# file4 = 'C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\아파트(매매)_실거래가_서울_202001_202012.csv'
+# file5 = 'C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\아파트(매매)_실거래가_서울_201901_201912.csv'
+# file6 = 'C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\아파트(매매)_실거래가_경기_202301_202312.csv'
+# file7 = 'C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\아파트(매매)_실거래가_경기_202201_202212.csv'
+# file8 = 'C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\아파트(매매)_실거래가_경기_202101_202112.csv'
+# file9 = 'C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\아파트(매매)_실거래가_경기_202001_202012.csv'
+# file10 ='C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\아파트(매매)_실거래가_경기_201901_201912.csv'
 
 # # CSV 파일 읽기
 # df1 = pd.read_csv(file1, encoding="CP949")
@@ -32,7 +33,7 @@ import pandas as pd
 # merged_df = pd.concat([df1, df2, df3, df4, df5, df6, df7, df8, df9, df10])
 
 # # 합쳐진 데이터프레임을 새로운 CSV 파일로 저장
-# merged_df.to_csv('서울_아파트_매매\\apartment_seoul+ggd.csv', index=False, encoding='utf-8-sig')
+# merged_df.to_csv('C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\apartment_seoul+ggd.csv', index=False, encoding='CP949')
 
 
 # 서울 경기 아파트 전월세
@@ -67,6 +68,6 @@ import pandas as pd
 # merged_df = pd.concat([df1, df2, df3, df4, df5, df6, df7, df8, df9, df10])
 
 # 합쳐진 데이터프레임을 새로운 CSV 파일로 저장
-# merged_df.to_csv('서울_아파트_전월세\\apartment2_seoul+ggd.csv', index=False, encoding='CP949')
+# merged_df.to_csv('C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_전월세\\apartment2_seoul+ggd.csv', index=False, encoding='CP949')
 
 

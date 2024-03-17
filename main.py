@@ -39,7 +39,7 @@ elif selected=="Apartment":
         st.title('서울-경기 아파트 매매동향')
 
         # 데이터 불러오기, 데이터 형 변환.
-        # df = pd.read_csv('서울_아파트_매매\\apartment_seoul+ggd.csv', encoding="CP949")
+        df = pd.read_csv('C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\apartment_seoul+ggd.csv', encoding="CP949")
         df['계약년월'] = pd.to_datetime(df['계약년월'], format='%Y%m')  # 날짜 형식으로 변환
         # df['계약년월'] = pd.to_numeric(df['계약년월'], errors='coerce')
         df['전용면적(㎡)'] = pd.to_numeric(df['전용면적(㎡)'], errors='coerce')  # 전용면적을 숫자로 변환
@@ -119,7 +119,7 @@ elif selected=="Apartment":
         st.title('서울-경기 아파트 전월세동향')
 
         # 데이터 불러오기, 데이터 형 변환.
-        # df = pd.read_csv('서울_아파트_전월세\\apartment2_seoul+ggd.csv', encoding="CP949")
+        df = pd.read_csv('C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_전월세\\apartment2_seoul+ggd.csv', encoding="CP949")
         df['계약년월'] = pd.to_datetime(df['계약년월'], format='%Y%m')  # 날짜 형식으로 변환
         # df['계약년월'] = pd.to_numeric(df['계약년월'], errors='coerce')
         df['전용면적(㎡)'] = pd.to_numeric(df['전용면적(㎡)'], errors='coerce')  # 전용면적을 숫자로 변환
