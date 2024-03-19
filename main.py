@@ -1,7 +1,7 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 from streamlit_option_menu import option_menu
-import apartment
+import apartment as apartment
 import multigen
 import solo
 import office

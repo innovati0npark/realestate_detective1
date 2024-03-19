@@ -80,7 +80,6 @@ def sell():
 
 
 
-
 def lease():
     st.sidebar.title('lease')  # 왼쪽 탭 이름 설정
         
