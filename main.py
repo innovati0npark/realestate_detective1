@@ -41,7 +41,7 @@ elif selected=="아파트":
         page = st.radio('페이지 선택', ['매매', '전월세'])
 
     if page == "매매":
-        st.header(":building: 아파트")
+        st.header(":house: 아파트")
         st.sidebar.title('아파트')  # 왼쪽 탭 이름 설정
         # 메뉴 안 그래프 title
         st.title('서울-경기 매매동향')
@@ -119,7 +119,7 @@ elif selected=="아파트":
     elif page == '전월세':
         st.sidebar.title('lease')  # 왼쪽 탭 이름 설정
         
-        st.header(":building: 아파트")
+        st.header(":house: 아파트")
         st.sidebar.title('Apartment')  # 왼쪽 탭 이름 설정
         # 메뉴 안 그래프 title
         st.title('서울-경기 전월세동향')
@@ -311,7 +311,7 @@ elif selected=="연립/다세대":
 
     elif page == "전월세":
         st.header(":house: 연립/다세대")
-        st.title("서울-경기 매매동향")
+        st.title("서울-경기 전월세동향")
         st.sidebar.title('연립/다세대_전월세')
     
         # 데이터 불러오기, 데이터 형 변환.
@@ -616,7 +616,7 @@ elif selected=="오피스텔":
 
 
     if page == "매매":
-        st.header(":building: 오피스텔")
+        st.header(":house: 오피스텔")
         st.title("서울-경기 매매동향")
         st.sidebar.title('오피스텔_매매')
 
@@ -691,7 +691,7 @@ elif selected=="오피스텔":
 
 
     elif page == "전월세":
-        st.header(":building: 오피스텔")
+        st.header(":house: 오피스텔")
         st.title("서울-경기 전월세동향")
         st.sidebar.title('오피스텔_전월세')
 
