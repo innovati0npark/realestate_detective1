@@ -4,6 +4,12 @@ import matplotlib.pyplot as plt
 
 
 
+@st.cache_resource
+def load_data(excel_path):
+    with open(excel_path, 'r', encoding='CP949') as file:
+        df = pd.read_csv(file)
+    return df
+
 
 
 def sell():
@@ -11,8 +17,9 @@ def sell():
     st.title("서울-경기 매매동향")
     st.sidebar.title('단독/다가구_매매')
 
-        # 데이터 불러오기, 데이터 형 변환.
-    df = pd.read_csv('C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\수도권_단독다가구_매매\\수도권_단독다가구_매매_seoul+ggd.csv', encoding="CP949")
+    # 데이터 불러오기, 데이터 형 변환.
+    p_path = 'C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\수도권_단독다가구_매매\\수도권_단독다가구_매매_seoul+ggd.csv'
+    df = load_data(p_path)
     df['계약년월'] = pd.to_datetime(df['계약년월'], format='%Y%m')  # 날짜 형식으로 변환
     # df['계약년월'] = pd.to_numeric(df['계약년월'], errors='coerce')
     df['연면적(㎡)'] = pd.to_numeric(df['연면적(㎡)'], errors='coerce')  # 연면적을 숫자로 변환
@@ -91,7 +98,8 @@ def lease():
 
 
     # 데이터 불러오기, 데이터 형 변환.
-    df = pd.read_csv('C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\수도권_단독다가구_전월세\\단독다가구_전월세_seoul+ggd.csv', encoding="CP949")
+    p_path = 'C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\수도권_단독다가구_전월세\\단독다가구_전월세_seoul+ggd.csv'
+    df = load_data(p_path)
     df['계약년월'] = pd.to_datetime(df['계약년월'], format='%Y%m')  # 날짜 형식으로 변환
     # df['계약년월'] = pd.to_numeric(df['계약년월'], errors='coerce')
     df['계약면적(㎡)'] = pd.to_numeric(df['계약면적(㎡)'], errors='coerce')  # 계약면적을 숫자로 변환

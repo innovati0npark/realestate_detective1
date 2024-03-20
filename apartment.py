@@ -2,7 +2,19 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# # 필터 옵션 설정1_ sessionstate 추가
+#     st.session_state.selected_year = selected_year
+#     st.session_state.selected_district = selected_district
+    #  >> 이거 session state 좀 적용해야됨
 
+
+@st.cache_resource
+def load_data(excel_path):
+    with open(excel_path, 'r', encoding='CP949') as file:
+        df = pd.read_csv(file)
+    return df
+
+st.session_state
 
 def sell():
     st.header(":house: 아파트")
@@ -11,7 +23,8 @@ def sell():
     st.title('서울-경기 매매동향')
 
     # 데이터 불러오기, 데이터 형 변환.
-    df = pd.read_csv('C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\apartment_seoul+ggd.csv', encoding="CP949")
+    p_path = 'C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_매매\\apartment_seoul+ggd.csv'
+    df = load_data(p_path)
     df['계약년월'] = pd.to_datetime(df['계약년월'], format='%Y%m')  # 날짜 형식으로 변환
     # df['계약년월'] = pd.to_numeric(df['계약년월'], errors='coerce')
     df['전용면적(㎡)'] = pd.to_numeric(df['전용면적(㎡)'], errors='coerce')  # 전용면적을 숫자로 변환
@@ -21,18 +34,22 @@ def sell():
     # 필터 옵션 설정1_ 연도(기간), 시군구
     selected_year = st.sidebar.slider('년도 선택', min_value=2019, max_value=2023, value=(2019, 2023), step=1)
 
-    # 시군구는 필터내에서 검색할 수 있도록 수정.(multiselect로 수정)
+    # 시군구는 필터내에서 검색할 수 있도록 수정(multiselect로 수정)
     selected_district = st.sidebar.multiselect('시군구 선택', df['시군구'].unique(), default="경기도 의정부시 고산동")
+
     if selected_district:
         filtered_df = df[(df['계약년월'].dt.year.between(selected_year[0], selected_year[1])) & (df['시군구'].isin(selected_district))]
     else:
         filtered_df = df[(df['계약년월'].dt.year.between(selected_year[0], selected_year[1]))]
+
+    
 
     # 필터 옵션 설정2_ 아파트 전용면적별(multiselect로 수정)
 
     selected_areas = st.sidebar.multiselect('전용면적(㎡) 선택', ['40이하', '40-60', '60-74', '74-85', '85~101', '101-124', '124-140', '140이상'])
 
     area_conditions = []            #사용자가 선택한 각 전용면적 범위 조건이 담김.
+
 
     for selected_area in selected_areas:
         if selected_area == '40이하':
@@ -51,6 +68,7 @@ def sell():
             area_conditions.append((filtered_df['전용면적(㎡)'] >= 125) & (filtered_df['전용면적(㎡)'] <= 140))
         elif selected_area == '140이상':
             area_conditions.append((filtered_df['전용면적(㎡)'] >= 140))
+
 
     if area_conditions:             # 여러개 조건을 결합하는 부분.
         combined_area_condition = area_conditions[0]
@@ -89,7 +107,9 @@ def lease():
     st.title('서울-경기 전월세동향')
 
     # 데이터 불러오기, 데이터 형 변환.
-    df = pd.read_csv('C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_전월세\\apartment2_seoul+ggd.csv', encoding="CP949")
+    # df = pd.read_csv('C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_전월세\\apartment2_seoul+ggd.csv', encoding="CP949")
+    p_path = 'C:\\Users\\innov\\workspace\\realestate_detective1_rawdata\\서울_아파트_전월세\\apartment2_seoul+ggd.csv'
+    df = load_data(p_path)
     df['계약년월'] = pd.to_datetime(df['계약년월'], format='%Y%m')  # 날짜 형식으로 변환
     # df['계약년월'] = pd.to_numeric(df['계약년월'], errors='coerce')
     df['전용면적(㎡)'] = pd.to_numeric(df['전용면적(㎡)'], errors='coerce')  # 전용면적을 숫자로 변환
